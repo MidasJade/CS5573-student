@@ -284,6 +284,10 @@ in the lecture:
 | **The DBIR** | likelihood evidence | The citation that lets a student claim "high" honestly. |
 | **Dispatches** | pressure and priorities | What leadership has said it cares about. |
 
+**You will not run out.** The questionnaire alone has **31 items** answered *No*,
+*Partially*, or *In progress*, each with the IT manager's own explanation attached. If
+you are struggling to find six risks, reread his answers — not a web search.
+
 ❌ **Invented risks and template risks both fail item 4** (specific to *this* company).
 ❌ **A lab host on the register** — `172.29.0.20`, `staff-directory.csv` — is a category
 error: that's a training range, not the company. Score item 4 down and say why.
