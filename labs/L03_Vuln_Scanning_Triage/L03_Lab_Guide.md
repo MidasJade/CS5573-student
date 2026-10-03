@@ -22,11 +22,12 @@ harder and worse.
 Last week you built an asset inventory — *what exists*. This week you find out *what's
 wrong with it*, and then do the part that actually matters.
 
-Running a scanner is not a skill. You type one command and a tool hands you a wall of
-findings, each with a confident-looking severity label. **Every one of those labels is
-the tool's opinion**, formed without knowing anything about your company, your data, or
-what else is in place. Some findings will be real and urgent. Some will be real and
-irrelevant. And at least one will be **flatly wrong about the host it's describing.**
+Running a scanner is not a skill. You type one command and a tool hands you back dozens
+of confident-looking statements. **Every one of them is the tool's opinion**, formed
+without knowing anything about your company, your data, or what else is in place. Some
+will be real and urgent. Many will be true and worthless. Some will describe files that
+do not exist. And one set of them will be **flatly wrong about the host it's
+describing** — not vague, not hedged: specific, detailed, and wrong.
 
 Your job is to tell them apart. That's triage.
 
@@ -180,20 +181,59 @@ nmap -sV --script http-enum,http-headers,http-methods -p9090 172.29.0.30
 The nmap runs take a minute or two each. **Don't read them yet** — let them all finish,
 then come back. (To keep the output: `nmap ... -oN web01.txt`.)
 
-Now read what came back, and notice the *shape* of it before the content:
+Now read what came back, and notice the *shape* of it before the content.
 
-- There are a lot of findings. More than there are problems.
-- Many are **informational** — a header that isn't set, a method that's allowed, a
-directory that exists. True statements, not necessarily problems.
-- Some are **duplicates** of each other, phrased differently.
-- Some are about software the host **isn't running.** (Hold that thought.)
-- Almost none of them know anything about *your* environment. The tool cannot tell
-whether a finding matters here, because it has never heard of here.
+**Most of what you got is description, not judgment.** Look at the whatweb reports:
+`Status: 200 OK`, `Title`, `IP`, `Country: RESERVED, ZZ`, a dump of the response
+headers, `HTML5` detected from the doctype. Every line is true. `Country: RESERVED, ZZ`
+is whatweb geolocating a private lab address and finding, correctly, that there is no
+country — a finding that is accurate and worth nothing. `IP: 172.29.0.10` restates what
+you typed. None of this tells you whether anything is wrong.
 
-This is normal. This is what scanner output looks like on every engagement you will ever
-do. The wall of text is not a failure of the tool — it's the tool doing its job, which
-is to report *possibilities*. Deciding which possibilities are real and which matter is
-**your** job, and it is the part nobody can automate for you.
+**Then look at `http-enum` on `172.29.0.10`.** It returned about **seventy-seven
+lines**, and they look alarming:
+
+```
+/admin/account.php: Possible admin folder (401 Unauthorized)
+/admin/download/backup.sql: Possible database backup (401 Unauthorized)
+/admin/upload.php: Admin File Upload (401 Unauthorized)
+/admin/CiscoAdmin.jhtml: Cisco Collaboration Server (401 Unauthorized)
+/admin/environment.xml: Moodle files (401 Unauthorized)
+```
+
+A database backup. A file upload. Cisco. Moodle. **None of those exist.** That host
+serves a handful of static HTML files — there is no PHP on it, no ASP, no JSP, no
+ColdFusion, no CMS, no `backup.sql`.
+
+So why did the scanner report them? Work it out from your own evidence: those paths are
+all under `/admin/`, and `/admin/` requires a password. The server challenges for
+credentials **before** it checks whether the file exists — so a request for a file that
+was never there comes back `401 Unauthorized`, exactly like a request for one that is.
+The scanner sees 401, concludes *"something is here and it's protected,"* and says so.
+Seventy-odd times.
+
+**The tool is not broken. It is reasoning correctly from a misleading signal** — which
+is worth sitting with, because it is the same failure you are about to meet in a
+completely different form in step 4.2.
+
+Three more things to notice:
+
+- **`http-methods` says `Supported Methods: GET HEAD`.** True, and completely fine.
+  Nothing risky is enabled. The script reports the list either way, because reporting
+  is its job — deciding whether `GET HEAD` is a problem is yours.
+- **`http-enum` found nothing at all on `.20` and `.30`.** Not because they're safer —
+  because neither has a password-protected directory to produce the 401 cascade. **The
+  host that looks worst in the scan is the one with a working access control on it.**
+- **Exactly one line in those seventy-seven matters**, and it is not formatted any
+  differently from the sixty wrong ones:
+
+  ```
+  /backup/: Backup folder w/ directory listing
+  ```
+
+That is this lab in one screen. The tool reported a true and important thing, in the
+same typeface, at the same severity, in the same list, as dozens of things that are
+false. It had no way to tell them apart. **You do** — and that is the entire job.
 
 ---
 
@@ -205,9 +245,10 @@ from the target, and record what you observed separately from what you concluded
 
 #### 4.1 — A directory that shouldn't be listable
 
-Scanners routinely report "directory indexing enabled." On its own that's an
-informational finding, and plenty of people ignore it. Don't. The question is never
-*"is indexing on?"* — it's ***"what does it expose?"***
+Your scan already told you about this one — `/backup/: Backup folder w/ directory
+listing`, one line in seventy-seven. Plenty of people skim past it, and on its own
+"directory indexing enabled" really is just an informational finding. Don't skim. The
+question is never *"is indexing on?"* — it's ***"what does it expose?"***
 
 ```bash
 curl -s http://172.29.0.10/backup/
@@ -242,10 +283,21 @@ about this host, and what `nmap -sV` called the service. Both of them will have 
 that software — and the version is genuinely ancient, which means anything either tool
 goes on to say about known weaknesses in it would be serious.
 
-> **Two tools agreed. That is not corroboration.** They read the *same banner*. Agreement
-> between two tools that share a source tells you nothing you didn't already know from
-> the source. This is worth more than it looks: "we confirmed it with a second tool" is
-> something people say in real reports, and it is often worth exactly nothing.
+Notice how far each tool ran with it. `nmap -sV` reports the service as
+`Apache httpd 2.2.14 ((Unix))`. `whatweb` goes further — it loads its **Apache** plugin,
+reports `Version: 2.2.14 (from HTTP Server Header)`, infers `OS: Unix`, links you to
+httpd.apache.org, and offers you **Google dorks** for finding more hosts like it. An
+entire chain of confident, specific, useful-looking conclusions, every link of which
+rests on one string the server chose to send.
+
+> **Two tools agreed. That is not corroboration.** They read the *same banner*.
+> Agreement between two tools that share a source tells you nothing you didn't already
+> know from the source. This matters more than it looks: *"we confirmed it with a second
+> tool"* is a sentence people write in real reports, and it is often worth exactly
+> nothing.
+>
+> Compare `172.29.0.30`, where both tools say Python and both are right. The tools
+> aren't bad at this. They are **exactly as reliable as what they're reading.**
 
 Before you write any of that into a report, get a **second, independent signal.** A
 banner is a string the server chooses to send. It is a *claim*, not evidence. Ask the
