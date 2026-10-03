@@ -273,6 +273,21 @@ plus Card 7's (*does this row force a decision — owner, treatment, date?*).
 > **Thirty rows of real, owned, decided risk is an excellent D2. Thirty rows of
 > boilerplate is a worse D2 than six honest ones.** Grade the rows, never the count.
 
+**Where the risks come from.** Students ask this first, so it is stated here as well as
+in the lecture:
+
+| Source | Supplies | Notes |
+|---|---|---|
+| **Onboarding packet + St. Ansgar questionnaire** | **the facts** — the main source | 31 items answered No / Partially / In progress. Documented, attributable, specific to this company. |
+| **The student's own L02 asset register** | facts | L02 is *set at Wumpus*, so its register is legitimately a company artifact. |
+| **L03 (and later labs)** | **method and finding *classes*, not facts** | L03 has no company setting. **Its hosts, IPs and filenames must not appear on a register.** What transfers is the shape of a finding. |
+| **The DBIR** | likelihood evidence | The citation that lets a student claim "high" honestly. |
+| **Dispatches** | pressure and priorities | What leadership has said it cares about. |
+
+❌ **Invented risks and template risks both fail item 4** (specific to *this* company).
+❌ **A lab host on the register** — `172.29.0.20`, `staff-directory.csv` — is a category
+error: that's a training range, not the company. Score item 4 down and say why.
+
 Every register row carries:
 
 1. **Risk statement** — an arguable sentence with SP 800-30's five parts (threat source ·

@@ -93,14 +93,16 @@ Answer at least **two**:
 
 ## E. How this feeds the security program
 
-Tonight's triaged findings are evidence for **§4 — Risk Assessment**, and they
-are the kind of thing your **D2 risk register** is built from: each one can
-become a row, with an owner and a treatment decision.
+What transfers from tonight to your **D2 risk register** is the **method**, not
+these findings. This environment is a training range — it isn't your company,
+and its hosts don't belong on your register. Practise the form here, on what you
+actually found tonight; then apply the same form to your company's own
+documented exposures when you write D2.
 
-1. Pick **one** of tonight's findings and write it as a **risk statement** in the
-   form Tuesday's lecture used — *[threat source] does [threat event], which
-   works because of [vulnerability], causing [impact]* — plus a likelihood, and
-   the reason that anchors it.
+1. Pick **one** of tonight's findings — about **this** environment — and write it
+   as a **risk statement** in the form Tuesday's lecture used: *[threat source]
+   does [threat event], which works because of [vulnerability], causing
+   [impact]* — plus a likelihood, and the reason that anchors it.
 
    ____________________________________________________________________________
 
