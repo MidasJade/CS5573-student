@@ -34,6 +34,10 @@ services:
   # Serves a static site. Config in env/web01/default.conf enables directory
   # autoindex on one location and protects another with HTTP basic auth, whose
   # password file is generated at build time (see env/web01/Dockerfile).
+  #
+  # Single read-only mount of the whole document root. Do NOT add a second,
+  # nested mount inside it: the parent is :ro, so Docker cannot create the
+  # mountpoint directory and the container fails to start.
   web01:
     build: ./env/web01
     image: cs5573-lab/web01:l03
@@ -43,7 +47,6 @@ services:
     volumes:
       - ./env/web01/default.conf:/etc/nginx/conf.d/default.conf:ro
       - ./env/web01/html:/usr/share/nginx/html:ro
-      - ./env/web01/backup:/usr/share/nginx/html/backup:ro
     networks:
       l03net:
         ipv4_address: 172.29.0.10
