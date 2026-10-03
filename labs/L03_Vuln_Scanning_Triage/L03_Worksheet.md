@@ -51,8 +51,11 @@ you *inferred* from it (observation ≠ inference), and the value you submitted.
 | F4 | Host whose scanner finding is **wrong** | | | | |
 | F5 | Host to remediate **first** (justify below) | | | | |
 
-**F4 — how do you know?** The scanner believed a banner. You didn't. Name the
-**second, independent signal** you used, and say what it showed:
+**F4 — how do you know?** Both tools believed a banner. You didn't. Name the
+**second, independent signal** you used, and say what it showed. If you used the
+response-shape comparison, record the row that gave it away:
+
+____________________________________________________________________________
 
 ____________________________________________________________________________
 

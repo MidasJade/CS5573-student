@@ -320,15 +320,47 @@ rests on one string the server chose to send.
 > aren't bad at this. They are **exactly as reliable as what they're reading.**
 
 Before you write any of that into a report, get a **second, independent signal.** A
-banner is a string the server chooses to send. It is a *claim*, not evidence. Ask the
-server to do something instead:
+banner is a string the server chooses to send — a *claim*, not evidence. So stop reading
+what the server says and start looking at what it *does*.
+
+You don't need to know anything about Apache for this. You have two other hosts to
+compare against: `.10` is nginx, and `.30` is Python. **Put all three side by side** and
+look only at the shape of the response:
+
+```bash
+curl -sI http://172.29.0.10/            # nginx
+curl -sI http://172.29.0.20:8080/       # claims Apache
+curl -sI http://172.29.0.30:9090/       # Python
+```
+
+Four things to compare, and none of them require knowing a product:
+
+| | `.10` nginx | `.20` "Apache" | `.30` Python |
+|---|---|---|---|
+| First line of the response | `HTTP/1.1` | ? | ? |
+| How is the content-type header spelled? | `Content-Type` | ? | ? |
+| Is there a `Connection:` header? | yes | ? | ? |
+| `ETag` and `Accept-Ranges`? | both | ? | ? |
+
+Fill that in from your own output. **One of those three columns is a copy of another
+one.** Software leaves fingerprints in details nobody thinks to fake — which protocol
+version it speaks, how it capitalises a header name, which optional headers it bothers
+to send. A banner is one string, easily changed. These are structural, and whoever set
+that banner never touched them.
+
+For one more angle, ask the server for something that isn't there and read the error
+page it generates:
 
 ```bash
 curl -s http://172.29.0.20:8080/this-path-does-not-exist
 ```
 
-Look carefully at that error page. Compare it with what you know about the software the
-banner named. **Does this host look like it's running what it says it's running?**
+Error pages are written by the software, not by whoever configured it. Compare it with
+`.30`'s:
+
+```bash
+curl -s http://172.29.0.30:9090/this-path-does-not-exist
+```
 
 #### 4.3 — A service with no front door
 
@@ -344,11 +376,17 @@ question from last week: *who decided to expose this, and does anyone know it's 
 
 #### 4.4 — The one the scanner got wrong
 
-Put 4.2 together. One of your three hosts produced scanner findings that are
-**confidently, specifically wrong** — not "low severity," not "probably fine," but
-describing software the host is not running at all.
+You've now got everything you need. One of your three hosts told both of your tools what
+software it runs, both tools believed it, and **the evidence from the host itself says
+otherwise** — the response shape and the error page both point somewhere else entirely.
+So every conclusion either tool drew about that software is wrong about that host. Not
+"low severity," not "probably fine": specific, detailed, confident, and wrong.
 
 **Finding F4: which host is it?** (Its IP, or its name.)
+
+On the worksheet you also have to say **how you know** — name the independent signal you
+used and what it showed. "The banner looked suspicious" is not an answer. "Its protocol
+version and header spelling match the Python host exactly and differ from nginx" is.
 
 > **This is the most transferable thing in the lab.** Banner-based fingerprinting is the
 > largest single source of scanner false positives in real work. If you hand a
