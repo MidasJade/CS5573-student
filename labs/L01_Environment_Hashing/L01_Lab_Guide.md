@@ -111,7 +111,7 @@ terminal, this is the on-ramp; go slowly and read the output.
   ```bash
    verify_env.sh
   ```
-   Read the output. If the last lines say `**ENVIRONMENT OK**`, your toolchain
+   Read the output. If the last lines say **`ENVIRONMENT OK`**, your toolchain
    works and you have cleared the course's environment gate. If anything says
    `MISSING`, or you never reach that line, stop and see **Troubleshooting** —
    this is exactly the problem this week exists to catch.
@@ -223,7 +223,7 @@ cd ..
 
 `-c` reads the list and reports `OK` or `FAILED` per file. One file's real
 contents no longer match the digest the project published for it — so its line
-comes back `**FAILED**`. That's the file you would *not* trust.
+comes back **`FAILED`**. That's the file you would *not* trust.
 
 > **Finding F4 — which file fails checksum verification?** Give its filename.
 > **(F4.)**
@@ -369,14 +369,14 @@ need it again on Thursday of Week 2.
 
 ### Troubleshooting
 
-- `**docker compose` says the daemon isn't running:** start Docker Desktop and
+- **`docker compose` says the daemon isn't running:** start Docker Desktop and
 wait for it to report "running," then retry. This is the single most common
 Week-1 issue.
-- `**docker compose ps` shows nothing / the build failed:** re-run
+- **`docker compose ps` shows nothing / the build failed:** re-run
 `docker compose up -d --build` and read the last lines of output. Then
 `docker compose logs workbench`. If it still fails, bring the exact error to
 Thursday's session — that's what it's for.
-- `**docker compose exec workbench bash` says "no such service":** make sure
+- **`docker compose exec workbench bash` says "no such service":** make sure
 you're in the `L01_Environment_Hashing` folder (the one with
 `docker-compose.yml`) when you run it.
 - **A hash doesn't match what you expected** even though the command ran: you're

@@ -89,20 +89,20 @@ Quick check that your tools are present:
 
 ```bash
 nmap --version
-nikto -Version
+whatweb --version
 curl --version
 ```
 
-> `**nikto -Version` fails or nikto isn't found?** Not fatal — tell your instructor, and
-> use `nmap -sV --script http-enum,http-headers <target>` wherever this guide says
-> "run the scanner." **Every value this lab asks for comes from the targets themselves,
-> not from the scanner's output**, so the answers do not change.
+> **A tool missing or erroring?** Not fatal. Tell your instructor and use
+> `nmap -sV --script http-enum,http-headers <target>` wherever this guide says "run the
+> scanner." **Every value this lab asks for comes from the targets themselves, not from
+> a scanner's output**, so the answers do not change.
 
 ---
 
 ### 1. Authorization, and why it's the first heading (~2 min)
 
-You are authorized to scan `**172.29.0.0/24` and nothing else.** Not your home network,
+You are authorized to scan **`172.29.0.0/24` and nothing else.** Not your home network,
 not your employer's, not a website you're curious about, not the other lab's segment.
 
 This is not a formality. Running a vulnerability scanner against a host you don't have
@@ -160,16 +160,25 @@ you'll need one of them later, and you'll need to distrust another one.
 
 ### 3. Run the scanner (~10 min)
 
-Now let the tool talk. Run it against each web service in turn:
+Now let the tools talk. You have two, and they work differently — which matters later.
+
+**`whatweb`** fingerprints a web service from what it *says about itself*: response
+headers, page markup, cookie names. **`nmap -sV`** fingerprints from how a service
+*responds to probes*, and `--script http-enum` additionally guesses at paths that
+commonly exist.
 
 ```bash
-nikto -h http://172.29.0.10/
-nikto -h http://172.29.0.20:8080/
-nikto -h http://172.29.0.30:9090/
+whatweb -v http://172.29.0.10/
+whatweb -v http://172.29.0.20:8080/
+whatweb -v http://172.29.0.30:9090/
+
+nmap -sV --script http-enum,http-headers,http-methods -p80   172.29.0.10
+nmap -sV --script http-enum,http-headers,http-methods -p8080 172.29.0.20
+nmap -sV --script http-enum,http-headers,http-methods -p9090 172.29.0.30
 ```
 
-Each run takes a couple of minutes. **Don't read them yet** — let all three finish, then
-come back. (If you'd rather keep the output, add `-o web01.txt` to a run.)
+The nmap runs take a minute or two each. **Don't read them yet** — let them all finish,
+then come back. (To keep the output: `nmap ... -oN web01.txt`.)
 
 Now read what came back, and notice the *shape* of it before the content:
 
@@ -228,9 +237,15 @@ curl -sI http://172.29.0.20:8080/ | grep -i '^server:'
 
 **Finding F2: what exactly does that `Server:` header say?**
 
-Your scanner will have taken that header at face value and reported findings that apply
-to that software — quite possibly serious ones with real CVE numbers attached, because
-the version named is genuinely ancient.
+Now look at what your **tools** concluded from that header. Check what `whatweb` said
+about this host, and what `nmap -sV` called the service. Both of them will have named
+that software — and the version is genuinely ancient, which means anything either tool
+goes on to say about known weaknesses in it would be serious.
+
+> **Two tools agreed. That is not corroboration.** They read the *same banner*. Agreement
+> between two tools that share a source tells you nothing you didn't already know from
+> the source. This is worth more than it looks: "we confirmed it with a second tool" is
+> something people say in real reports, and it is often worth exactly nothing.
 
 Before you write any of that into a report, get a **second, independent signal.** A
 banner is a string the server chooses to send. It is a *claim*, not evidence. Ask the
@@ -317,9 +332,10 @@ and what would turning it off actually buy you? (Careful: less than people think
 - **Try the admin door.** `curl -sI http://172.29.0.10/admin/` returns 401. That's a
 control doing its job. Now ask the harder question: what would you need to know to
 decide whether it's a *good* control?
-- **Compare tools.** Run `nmap -sV --script http-enum http://172.29.0.20:8080` and see
-whether nmap makes the same mistake about that host as nikto did. Two tools, one
-banner, and the same wrong answer — because they're reading the same lie.
+- **Make a tool contradict itself.** Fetch the banner with `curl -sI`, ask `whatweb`
+and `nmap -sV` about the same host, then request a page that doesn't exist. Three views,
+one of which disagrees with the other two. Which would you put in a report, and why
+that one?
 
 Nothing here is submitted; it's for the curious.
 
@@ -370,17 +386,17 @@ The exercise is over. Take it down.
 
 ### Troubleshooting
 
-- `**docker compose` says the daemon isn't running:** start Docker Desktop and wait for
+- **`docker compose` says the daemon isn't running:** start Docker Desktop and wait for
 "Engine running," then retry. The single most common issue.
-- `**docker compose exec scanner bash` says "no such service":** you're not in the
+- **`docker compose exec scanner bash` says "no such service":** you're not in the
 `L03_Vuln_Scanning_Triage` folder (the one with `docker-compose.yml`). Run `pwd` to
 check, then `cd` there.
 - **Fewer than four containers `Up`:** re-run `docker compose up -d --build`, then
 `docker compose logs <name>`. Don't scan a half-up environment.
-- `**nikto` not found, or `nikto -Version` errors:** use
-`nmap -sV --script http-enum,http-headers <target>` instead and tell your instructor.
+- **A scanning tool is missing or errors:** use
+`nmap -sV --script http-enum,http-headers <target>` instead, and tell your instructor.
 **None of the five findings change** — they come from the targets, not the scanner.
-- `**curl` returns nothing at all for a host:** check you used the right port. 80 for
+- **`curl` returns nothing at all for a host:** check you used the right port. 80 for
 `.10`, 8080 for `.20`, 9090 for `.30` — a `curl` to the wrong port on a live host
 hangs or returns empty rather than saying "wrong port."
 - **A scan seems to hang:** `nmap -p-` takes a while — all 65,535 ports. Give it a
