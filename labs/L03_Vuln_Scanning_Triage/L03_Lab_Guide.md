@@ -205,12 +205,24 @@ A database backup. A file upload. Cisco. Moodle. **None of those exist.** That h
 serves a handful of static HTML files — there is no PHP on it, no ASP, no JSP, no
 ColdFusion, no CMS, no `backup.sql`.
 
-So why did the scanner report them? Work it out from your own evidence: those paths are
-all under `/admin/`, and `/admin/` requires a password. The server challenges for
-credentials **before** it checks whether the file exists — so a request for a file that
-was never there comes back `401 Unauthorized`, exactly like a request for one that is.
-The scanner sees 401, concludes *"something is here and it's protected,"* and says so.
-Seventy-odd times.
+**So why did the scanner report them?** Two commands will show you. Ask for a page under
+`/admin/` that does exist, then ask for one that obviously doesn't:
+
+```bash
+curl -sI http://172.29.0.10/admin/
+curl -sI http://172.29.0.10/admin/there-is-no-such-file.php
+```
+
+Both come back **`401 Unauthorized`**. The same response for a page that is there and a
+page that never was.
+
+That's the whole explanation. `/admin/` is password-protected, and the server asks for
+credentials **before** it looks to see whether the file exists — so it never gets as far
+as `404 Not Found`. You failed the first check, and the request stops there.
+
+Which means that from the outside, **"protected" and "absent" look identical.** A
+scanner guessing filenames gets `401` for every guess, reads each one as *"something is
+here and it's locked,"* and reports it. Seventy-odd times.
 
 **The tool is not broken. It is reasoning correctly from a misleading signal** — which
 is worth sitting with, because it is the same failure you are about to meet in a
