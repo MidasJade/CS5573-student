@@ -1,0 +1,5 @@
+hostname,role,location
+web01,intranet,KC-office
+db01,database,KC-office
+files01,file-server,KC-office
+printer01,printer,KC-office

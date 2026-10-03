@@ -1,0 +1,9 @@
+WUMPUS TELEHEALTH — INTERNAL
+Quarterly Operations Summary — Q4
+
+Active patients under remote monitoring: 3,140
+Virtual urgent-care visits completed: 8,902
+Clinician network (contracted): 61
+Platform uptime: 99.82%
+
+Prepared by Operations. Do not distribute outside the company.

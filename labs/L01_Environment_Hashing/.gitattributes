@@ -1,0 +1,8 @@
+# Load-bearing. Everything in this lab is computed from the EXACT BYTES of the
+# files under env/workbench/files/. If a checkout on Windows rewrote LF -> CRLF,
+# every hash in the lab would change and nothing would line up. Force no
+# translation.
+* text=auto eol=lf
+*.sh text eol=lf
+# Fixtures: treat as binary so their bytes are preserved verbatim on every OS.
+env/workbench/files/** -text

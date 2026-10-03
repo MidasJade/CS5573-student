@@ -1,0 +1,117 @@
+# CS5573 L02 — Recon & Asset Inventory : "the Wumpus lab net"
+#
+# A fixed, deterministic lab network. Every asset sits at a STATIC IP on a
+# user-defined bridge (172.28.0.0/24). Every image tag is pinned to an exact
+# version so results are identical on every student's laptop.
+#
+# Students never edit this file. They run:   docker compose up -d --build
+# and then work from the "recon" workstation: docker compose exec recon bash
+#
+# DECOUPLING NOTE (Narrative Threading Plan §8 rule 4): this lab uses only the
+# generic Wumpus *setting* (a small-office segment) as flavor. No canonical
+# narrative value (product name, character, date, IP, incident fact) appears
+# here and nothing you are asked to find depends on story knowledge.
+#
+# PINNING NOTE (readiness gate): tags below are exact. At the gate, run the
+# live solve on a Docker host and record the resolved image DIGESTS in the
+# instructor notes, so a mutated tag can never change a result.
+#
+# NOTE: a divergent parallel version of this file was preserved as
+# docker-compose.ALT-CONFLICT.yml — see the delta log. THIS file is the one the
+# lab guide, worksheet, solve.sh, normalize_test.py, and Canvas key are keyed to.
+
+name: wumpus-lab-l02
+
+networks:
+  wumpuslab:
+    name: wumpuslab
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
+          gateway: 172.28.0.1
+
+services:
+
+  # ---- web01 : staff intranet landing page (nginx) ---------------------------
+  # Serves a static page. nginx is configured with server_tokens on (see
+  # env/web01/default.conf).
+  web01:
+    image: nginx:1.25.3
+    container_name: web01
+    hostname: web01
+    restart: unless-stopped
+    volumes:
+      - ./env/web01/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./env/web01/html:/usr/share/nginx/html:ro
+    networks:
+      wumpuslab:
+        ipv4_address: 172.28.0.10
+
+  # ---- db01 : office application database (PostgreSQL) -----------------------
+  db01:
+    image: postgres:15.6
+    container_name: db01
+    hostname: db01
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: app-lab-not-a-secret
+      POSTGRES_DB: appdb
+    networks:
+      wumpuslab:
+        ipv4_address: 172.28.0.20
+
+  # ---- files01 : legacy office file server (SSH) ----------------------------
+  files01:
+    build: ./env/files01
+    image: wumpus-lab/files01:l02
+    container_name: files01
+    hostname: files01
+    restart: unless-stopped
+    networks:
+      wumpuslab:
+        ipv4_address: 172.28.0.30
+
+  # ---- gateway01 : office device / IoT gateway ------------------------------
+  # Runs two listeners plus a loopback-only telemetry publisher; see
+  # env/gateway01/Dockerfile.
+  gateway01:
+    build: ./env/gateway01
+    image: wumpus-lab/gateway01:l02
+    container_name: gateway01
+    hostname: gateway01
+    restart: unless-stopped
+    networks:
+      wumpuslab:
+        ipv4_address: 172.28.0.40
+
+  # ---- printer01 : network printer admin page (python http.server) ----------
+  # The mundane asset. Present in the inventory, boring by design.
+  printer01:
+    image: python:3.12.3-slim
+    container_name: printer01
+    hostname: printer01
+    restart: unless-stopped
+    working_dir: /web
+    command: ["python", "-m", "http.server", "8080", "--directory", "/web"]
+    volumes:
+      - ./env/printer01/html:/web:ro
+    networks:
+      wumpuslab:
+        ipv4_address: 172.28.0.50
+
+  # ---- recon : the student's scanning workstation ---------------------------
+  # Students run all commands from here. It listens on nothing.
+  # (debian:12.5-slim == bookworm-slim point release; the tool versions here do
+  #  not affect any result — only the scanned assets do.)
+  recon:
+    build: ./env/recon
+    image: wumpus-lab/recon:l02
+    container_name: recon
+    hostname: recon
+    restart: unless-stopped
+    command: ["sleep", "infinity"]
+    networks:
+      wumpuslab:
+        ipv4_address: 172.28.0.100

@@ -1,0 +1,5 @@
+New-hire IT checklist (draft)
+- issue laptop
+- create SaaS account
+- add to VPN
+- (offboarding: reverse all of the above)

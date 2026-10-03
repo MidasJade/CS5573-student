@@ -1,0 +1,3 @@
+# Keep shell scripts LF so Windows checkouts don't CRLF the shebang lines and
+# break the container entrypoints (env/*/entrypoint.sh, solve.sh).
+*.sh text eol=lf

@@ -1,0 +1,90 @@
+# CS5573 L03 — Vulnerability scanning & triage.
+#
+# A small, deterministic target environment on its own segment (172.29.0.0/24 —
+# deliberately different from L02's, so the two can be up at once without
+# confusion). Every image tag is pinned to an exact version so results are
+# identical on every student's laptop.
+#
+# Students never edit this file. They run:   docker compose up -d --build
+# and work from the "scanner" workstation:   docker compose exec scanner bash
+#
+# DECOUPLING NOTE (Narrative Threading Plan §8 rule 4): generic small-office
+# setting only. No canonical narrative value (character, date, incident fact,
+# IP, product name) appears here, and nothing you are asked to find depends on
+# story knowledge.
+#
+# PINNING NOTE (readiness gate): tags below are exact. At the gate, run the live
+# solve on a Docker host and record the resolved image DIGESTS in the instructor
+# notes, so a mutated tag can never change a result.
+
+name: cs5573-l03
+
+networks:
+  l03net:
+    name: l03net
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.29.0.0/24
+          gateway: 172.29.0.1
+
+services:
+
+  # ---- web01 : small-office intranet (nginx) --------------------------------
+  # Serves a static site. Config in env/web01/default.conf enables directory
+  # autoindex on one location and protects another with HTTP basic auth, whose
+  # password file is generated at build time (see env/web01/Dockerfile).
+  web01:
+    build: ./env/web01
+    image: cs5573-lab/web01:l03
+    container_name: l03-web01
+    hostname: web01
+    restart: unless-stopped
+    volumes:
+      - ./env/web01/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./env/web01/html:/usr/share/nginx/html:ro
+      - ./env/web01/backup:/usr/share/nginx/html/backup:ro
+    networks:
+      l03net:
+        ipv4_address: 172.29.0.10
+
+  # ---- app01 : internal application front end -------------------------------
+  # A Python http.server behind a wrapper that sets a Server: header the
+  # operators copied from an old runbook. See env/app01/server.py.
+  app01:
+    build: ./env/app01
+    image: cs5573-lab/app01:l03
+    container_name: l03-app01
+    hostname: app01
+    restart: unless-stopped
+    networks:
+      l03net:
+        ipv4_address: 172.29.0.20
+
+  # ---- devbox : a developer utility box -------------------------------------
+  # Serves a status/metrics directory over HTTP on a non-standard port with no
+  # authentication configured.
+  devbox:
+    build: ./env/devbox
+    image: cs5573-lab/devbox:l03
+    container_name: l03-devbox
+    hostname: devbox
+    restart: unless-stopped
+    networks:
+      l03net:
+        ipv4_address: 172.29.0.30
+
+  # ---- scanner : the student's workstation ----------------------------------
+  # Everything the guide needs is here so students never install tools on their
+  # own OS. It listens on nothing.
+  scanner:
+    build: ./env/scanner
+    image: cs5573-lab/scanner:l03
+    container_name: l03-scanner
+    hostname: scanner
+    restart: unless-stopped
+    command: ["sleep", "infinity"]
+    working_dir: /work
+    networks:
+      l03net:
+        ipv4_address: 172.29.0.100

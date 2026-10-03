@@ -1,0 +1,3 @@
+Office network (as-built, rough):
+ internet -> edge firewall -> one flat LAN
+ everything on the same segment

@@ -1,0 +1,15 @@
+{
+  "service": "build-runner",
+  "state": "idle",
+  "queue_depth": 0,
+  "uptime_seconds": 864000,
+  "last_job": {
+    "id": "job-4417",
+    "result": "success",
+    "duration_seconds": 212
+  },
+  "workers": [
+    {"name": "w1", "state": "idle"},
+    {"name": "w2", "state": "idle"}
+  ]
+}

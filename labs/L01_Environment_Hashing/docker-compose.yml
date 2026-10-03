@@ -1,0 +1,27 @@
+# CS5573 L01 — Environment gate + CLI/hashing warmup.
+#
+# One container, no network services, nothing published to the host: the lightest
+# possible Docker workload, on purpose. Its whole job in Week 1 is to prove that
+# every student's Docker Desktop + Compose toolchain actually works BEFORE Week 2
+# depends on it. If this comes up on your laptop, the harder labs will too.
+#
+# Students never edit this file. They run:
+#     docker compose up -d --build
+#     docker compose exec workbench bash
+# and work inside /workbench.
+#
+# DECOUPLING NOTE (Narrative Threading Plan §8 rule 4): the fixtures use only a
+# generic small-office *setting* as flavor. No canonical narrative value
+# (character, date, incident fact, IP) appears, and nothing you are asked to
+# find depends on story
+# knowledge.
+name: cs5573-l01
+
+services:
+  workbench:
+    build: ./env/workbench
+    image: cs5573-lab/workbench:l01
+    container_name: workbench
+    hostname: workbench
+    restart: unless-stopped
+    command: ["sleep", "infinity"]

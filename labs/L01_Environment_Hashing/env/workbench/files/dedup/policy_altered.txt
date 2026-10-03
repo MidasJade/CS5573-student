@@ -1,0 +1,4 @@
+APPROVED PASSWORD STANDARD v1
+Minimum length: 8
+MFA: required for all remote access
+Reuse: prohibited across systems

@@ -1,0 +1,8 @@
+build-runner
+------------
+internal utility host for scheduled build jobs
+
+runner version   2.4.1
+python           3.12
+job history      /var/log/runner (not served)
+contact          IT desk

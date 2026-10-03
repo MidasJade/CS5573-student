@@ -1,0 +1,4 @@
+Staff sync — action items
+1. finish asset inventory
+2. decide on MFA rollout
+3. schedule backup test

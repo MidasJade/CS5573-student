@@ -1,0 +1,4 @@
+firewall ruleset (approved baseline)
+allow tcp from vpn to app-tier port 443
+allow tcp from office to printer port 9100
+deny all

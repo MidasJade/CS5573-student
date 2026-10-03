@@ -1,0 +1,2 @@
+Draft notes about the password standard. Not the standard itself.
+See reference.txt for the approved version.

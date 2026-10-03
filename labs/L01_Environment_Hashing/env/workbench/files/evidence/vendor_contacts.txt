@@ -1,0 +1,4 @@
+Vendor contacts
+- cloud provider: support portal
+- SaaS office suite: admin console
+- ISP: 1-800-xxx-xxxx
