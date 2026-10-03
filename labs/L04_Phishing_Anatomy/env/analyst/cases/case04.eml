@@ -1,0 +1,41 @@
+Return-Path: <priya.lindqvist.hr@swiftmail-free.example>
+Received: from mx-in-02.arborridge.example (localhost [127.0.0.1])
+	by mx-in-02.arborridge.example (Postfix) with ESMTP id 2D8A1E3374
+	for <t.okonkwo@arborridge.example>; Fri, 21 Aug 2026 15:58:33 -0500 (CDT)
+Received: from out-18.smtp.swiftmail-free.example (out-18.smtp.swiftmail-free.example [198.51.100.142])
+	by mx-in-02.arborridge.example (Postfix) with ESMTPS id 1C790E3368
+	for <t.okonkwo@arborridge.example>; Fri, 21 Aug 2026 15:58:30 -0500 (CDT)
+Authentication-Results: mx-in-02.arborridge.example;
+	spf=pass (sender IP is 198.51.100.142) smtp.mailfrom=swiftmail-free.example;
+	dkim=pass header.d=swiftmail-free.example header.s=sm1;
+	dmarc=pass (p=none) header.from=swiftmail-free.example
+DKIM-Signature: v=1; a=rsa-sha256; d=swiftmail-free.example; s=sm1;
+	c=relaxed/relaxed; h=from:to:subject:date:message-id;
+	bh=Tz9LqNm4VcXoBpR7sWdKaY2gE1fHjU6ZiOlCr8PvQbA=;
+	b=Kx3nQpVz8LtYmBcR1oWsEaD7fGhJ9iU4ZvNlXqCbPyToMrSwA2eGdHuI5jFyKnQdRb
+From: "Priya Lindqvist (Arbor Ridge HR)" <priya.lindqvist.hr@swiftmail-free.example>
+To: <t.okonkwo@arborridge.example>
+Subject: Quick favour before the end of the day
+Date: Fri, 21 Aug 2026 15:58:28 -0500
+Message-ID: <CAF8h2Qm9kLpR4vNwZdX7sT1gEoJ@swiftmail-free.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Hi Tobias,
+
+Priya here - I am working from my personal account today, our mail is
+being migrated and I cannot get into the office one until Monday.
+
+Are you around for a few minutes? I need a hand with something
+time-sensitive and I would rather not put it in writing on a thread.
+Reply here with the best mobile number for you and whether you are free
+before 5, and I will call you.
+
+Appreciate it,
+
+Priya Lindqvist
+People & Culture
+Arbor Ridge Supply Co.
+
+Sent from my phone

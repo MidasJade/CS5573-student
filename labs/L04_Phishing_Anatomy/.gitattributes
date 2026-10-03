@@ -1,0 +1,16 @@
+# LOAD-BEARING. Do not remove.
+#
+# The saved messages are stored with CRLF line endings, because that is what the
+# mail format actually uses. Git's end-of-line translation would rewrite them on
+# checkout on some platforms, which changes the bytes of the file.
+#
+# One graded value in this lab is a SHA-256 digest of an attachment decoded out
+# of case03. Base64 decoding ignores line breaks, so that particular digest
+# survives translation - but the message files themselves would differ between a
+# Windows and a Linux student, and anything that compares them byte-for-byte
+# would disagree for no good reason. Marking them binary removes the whole class
+# of problem.
+#
+# Verify with:  git check-attr text -- env/analyst/cases/case01.eml
+#               (expect: text: unset)
+*.eml -text

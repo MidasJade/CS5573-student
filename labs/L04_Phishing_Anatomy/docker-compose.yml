@@ -1,0 +1,23 @@
+# L04 - Phishing Anatomy & ATT&CK Mapping
+#
+# One container. No targets, no network services, no scanning: the messages are
+# ordinary files on disk and every step of this lab is offline. That is why there
+# is no authorization boundary to restate this week.
+#
+# The analyst container carries nothing but Python's standard library, which is
+# all the parser needs. Nothing is installed at build time, so there is no
+# package that can go missing between now and the night you run it.
+
+services:
+  analyst:
+    build: ./env/analyst
+    container_name: l04-analyst
+    hostname: analyst
+    restart: unless-stopped
+    working_dir: /workbench
+    volumes:
+      # The saved messages, mounted read-only. Students can also read these
+      # straight off the host, which is what makes the no-Docker path work.
+      - ./env/analyst/cases:/cases:ro
+    # Keep the container alive so `docker compose exec` has something to enter.
+    command: ["sleep", "infinity"]

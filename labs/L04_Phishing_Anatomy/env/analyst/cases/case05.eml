@@ -1,0 +1,43 @@
+Return-Path: <o.brantley@callowayfreight.example>
+Received: from mx-in-02.arborridge.example (localhost [127.0.0.1])
+	by mx-in-02.arborridge.example (Postfix) with ESMTP id 4C1F2A8831
+	for <t.okonkwo@arborridge.example>; Tue, 11 Aug 2026 09:14:22 -0500 (CDT)
+Received: from mx1.callowayfreight.example (mx1.callowayfreight.example [198.51.100.24])
+	by mx-in-02.arborridge.example (Postfix) with ESMTPS id 3B9D1A8827
+	for <t.okonkwo@arborridge.example>; Tue, 11 Aug 2026 09:14:19 -0500 (CDT)
+Received: from WIN-CFL-MAIL01.callowayfreight.local ([10.20.4.18])
+	by mx1.callowayfreight.example with ESMTP id 7a41c9;
+	Tue, 11 Aug 2026 09:14:17 -0500 (CDT)
+Authentication-Results: mx-in-02.arborridge.example;
+	spf=pass (sender IP is 198.51.100.24) smtp.mailfrom=callowayfreight.example;
+	dkim=pass header.d=callowayfreight.example header.s=cfl2024;
+	dmarc=pass (p=quarantine) header.from=callowayfreight.example
+DKIM-Signature: v=1; a=rsa-sha256; d=callowayfreight.example; s=cfl2024;
+	c=relaxed/relaxed; h=from:to:subject:date:message-id;
+	bh=R4tNyQw8LmXcVoBpZ2sKdEa7gH1fJiU6ZlOrC9PvTbA=;
+	b=Pm5kQvZx9LtYnBcR2oWsFaD8gGhK1iV5ZwNmXqDbPzUpNrSxB3eHdIuJ6kGzLnRdSc
+From: "Owen Brantley" <o.brantley@callowayfreight.example>
+To: <t.okonkwo@arborridge.example>
+Subject: Q1 lane rates - revised schedule
+Date: Tue, 11 Aug 2026 09:14:15 -0500
+Message-ID: <CFL-20260811-7a41c9@callowayfreight.example>
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+
+<html><body style="font-family:Calibri,sans-serif;font-size:11pt">
+<p>Tobias - revised Q1 rate schedule is posted, effective for anything
+tendered after the 1st. Two lanes moved, everything else held. Portal link
+below; let me know if you want a walk-through before you load it.</p>
+
+<p><a href="https://portal.callowayfreight.example/rates/2027-q1">https://portal.callowayfreight.example/rates/2027-q1</a></p>
+
+<p>Rates are locked for the quarter once you accept, so please have a look
+before the 1st - after that any change goes through an amendment and your
+accounting team will not thank either of us.</p>
+
+<p>Owen Brantley<br>
+Calloway Freight Lines<br>
+Carrier Relations</p>
+</body></html>

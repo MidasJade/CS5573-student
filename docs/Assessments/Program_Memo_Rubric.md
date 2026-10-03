@@ -323,7 +323,83 @@ three, and why those three?**
 >   Worth a comment even when the memo is otherwise strong.
 > - **Treatments that are all purchases.** Same error D1 guards against, one week later.
 
-*(D3–D10 element lists are added here as each week is built.)*
+### D3 — Threat Profile (Week 4) → report §4 *(revises it)*
+
+**250–400 words of memo, plus the chain as a table.** The **table is exempt from the word
+count** — same precedent as D2, same reason.
+
+> **D3 is the first deliverable that does not create anything.** It feeds **§4**, which
+> D2 already created. Its job is to make §4 *better*. **A D3 submitted alongside an
+> unchanged register has not been done** — element 4 is where that is caught, and it is
+> worth saying in the assignment description as well as the lecture.
+
+Five elements:
+
+1. **Who you plan against** — two or three actor types, each with a **stated basis**.
+   Use **capability · intent · opportunity**, and say which of the three you can actually
+   evidence. (Usually: capability is assumed, intent comes from the DBIR, opportunity
+   comes from the questionnaire.)
+2. **One actor you have decided *not* to build the program around, with the reason.**
+   This is graded, and it is the element students skip. It is the direct descendant of
+   D2's risk-acceptance argument: *deciding not to plan against an adversary is a
+   decision, and it has to be written down for the same reason an accepted risk does* —
+   so that in six months the answer already exists, on paper, with a name on it.
+3. **The chain** — 4–6 steps for the primary actor, in tactic order, each with the
+   **technique name and ID** and **two columns**:
+   - **"Would it work here?"** — cited to a questionnaire item, the onboarding packet, or
+     their own L02 asset register.
+   - **"Would we know?"** — the detection column. New in D3.
+4. **What this changes in the register** — at least **two** D2 rows re-scored, re-ranked,
+   or added, each with why the profile changed their mind. **A row moved *down* is as
+   good an answer as one moved up** — better, usually, because it is harder to write and
+   it proves they re-read their own work rather than appending to it.
+5. **One honest limitation** — what the profile cannot tell them. Strongest answers:
+   ATT&CK records what has been *observed and reported*, so absence from it is not
+   evidence of absence; or, the "would we know" column assesses a system nobody has
+   instrumented, so every cell in it is an inference.
+
+**Where the content comes from.** Same discipline as D2, with one addition — the second
+column has a different and much thinner source than the first:
+
+| Source | Supplies | Notes |
+|---|---|---|
+| **DBIR healthcare industry section** | **intent, at industry scale** | The citation that makes "a financially motivated crew would come at us" a claim rather than a mood. |
+| **Onboarding packet + questionnaire** | **"would it work here" — the facts** | Every cell in column 1 cites an item ID. Unchanged from D2. |
+| **LOG-01 / LOG-02 / LOG-03 / NET-03** | **"would we know" — nearly the whole supply** | The column is close to empty by design. **Noticing that is the finding.** |
+| **attack.mitre.org** | technique names and IDs | Students look them up; the lecture's five are examples, not a list to copy. |
+| **Their own D2** | the rows element 4 revises | Which is why D2 should be returned with comments before D3 is due. |
+| **L04 (and later labs)** | **method and finding *classes*, not facts** | L04 is set at a different fictional company. **No `arborridge.example` address, case filename, or attachment digest may appear in a D3.** |
+
+> **Constraints:**
+> - **Every "would it work here" cell needs a citation.** An uncited "yes" is an
+>   assertion in a table's clothing — score **item 3** down.
+> - **Techniques, not procedures.** A profile written before an incident can only operate
+>   at the technique layer. A student who invents a specific pretext, a named account, or
+>   a dated event has written fiction, not analysis — and has also, incidentally, claimed
+>   knowledge they don't have. That's **item 3**.
+> - **No technique counts, no severity scores.** ATT&CK assigns no severity. A memo that
+>   ranks techniques "by ATT&CK severity" is citing something that does not exist.
+>
+> **Where this goes wrong, in order of frequency:**
+> - **The second column filled with "yes."** The most common failure by a distance. A
+>   student who has not asked *who would be looking* writes "we'd see it in the logs" for
+>   an environment with **no central logging and nobody assigned to look** (LOG-01,
+>   LOG-02). **"Unknown, and here's why" is the correct answer** and should be scored as
+>   such. Item 3.
+> - **The register is unchanged.** Element 4 absent or token ("I would raise phishing to
+>   high"). Item 1 — it didn't answer the actual ask.
+> - **The impressive adversary.** A profile built around a state-nexus actor with no
+>   evidenced intent toward this company. Item 3 (unverified likelihood presented as
+>   high) *and* item 4 (it's the generic industry scare). Note this is **not** wrong to
+>   *list* — only to build the program around.
+> - **Element 2 missing.** No declined actor. Very common, and it is a whole element.
+> - **Techniques copied from the lecture.** All five of Card 8's IDs, in Card 8's order,
+>   with Card 8's citations. That is a transcription, not a profile — and it is
+>   detectable because the student's own L02 register never appears in it. Item 4.
+> - **A limitation that isn't one.** "I might have missed something" is not a limitation;
+>   it's a disclaimer. Item 5 of the memo, scored under rubric item 3.
+
+*(D4–D10 element lists are added here as each week is built.)*
 
 ---
 

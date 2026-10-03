@@ -1,0 +1,59 @@
+Return-Path: <o.brantley@callowayfreight.example>
+Received: from mx-in-02.arborridge.example (localhost [127.0.0.1])
+	by mx-in-02.arborridge.example (Postfix) with ESMTP id 5E8B3C1142
+	for <t.okonkwo@arborridge.example>; Thu, 13 Aug 2026 16:42:51 -0500 (CDT)
+Received: from mx1.callowayfreight.example (mx1.callowayfreight.example [198.51.100.24])
+	by mx-in-02.arborridge.example (Postfix) with ESMTPS id 4D7A2C1139
+	for <t.okonkwo@arborridge.example>; Thu, 13 Aug 2026 16:42:48 -0500 (CDT)
+Received: from [203.0.113.77] (unknown [203.0.113.77])
+	by mx1.callowayfreight.example with ESMTPSA id 2f88e1
+	(authenticated sender o.brantley@callowayfreight.example);
+	Thu, 13 Aug 2026 16:42:44 -0500 (CDT)
+Authentication-Results: mx-in-02.arborridge.example;
+	spf=pass (sender IP is 198.51.100.24) smtp.mailfrom=callowayfreight.example;
+	dkim=pass header.d=callowayfreight.example header.s=cfl2024;
+	dmarc=pass (p=quarantine) header.from=callowayfreight.example
+DKIM-Signature: v=1; a=rsa-sha256; d=callowayfreight.example; s=cfl2024;
+	c=relaxed/relaxed; h=from:to:subject:date:message-id;
+	bh=0Qk2ByGxYq8mTfLpR4dWvN1sC7eZaJhUo5XiKr3PbQw=;
+	b=Yd7mPqLw2TkRxEnVbA9ZsHgJcUfO1iD4yQ6XvNlCpBaKtMrSwZ3eGhXuI8oF5jTyNdQ
+From: "Owen Brantley" <o.brantley@callowayfreight.example>
+To: <t.okonkwo@arborridge.example>
+Subject: RE: Q1 lane rates - revised schedule
+Date: Thu, 13 Aug 2026 16:42:42 -0500
+Message-ID: <CFL-20260813-2f88e1@callowayfreight.example>
+In-Reply-To: <CFL-20260811-7a41c9@callowayfreight.example>
+References: <CFL-20260811-7a41c9@callowayfreight.example>
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+
+<html><body style="font-family:Calibri,sans-serif;font-size:11pt">
+<p>Tobias,</p>
+
+<p>Apologies - the sheet I sent Tuesday had the Denver lane keyed wrong and
+I would rather you did not quote off it. Corrected version is here, same
+folder structure as always:</p>
+
+<p><a href="https://docs-callowayfreight.sharedoc-view.example/d/8841/rates-q1.html">https://portal.callowayfreight.example/rates/2027-q1</a></p>
+
+<p>You will need to sign in with your Arbor Ridge address the first time -
+our document portal moved behind single sign-on last month and it will not
+recognise the old link. Shout if it gives you any trouble.</p>
+
+<p>Owen</p>
+
+<hr>
+<p><b>From:</b> Owen Brantley &lt;o.brantley@callowayfreight.example&gt;<br>
+<b>Sent:</b> Tuesday, August 11, 2026 9:14 AM<br>
+<b>To:</b> t.okonkwo@arborridge.example<br>
+<b>Subject:</b> Q1 lane rates - revised schedule</p>
+
+<p>Tobias - revised Q1 rate schedule is posted, effective for anything
+tendered after the 1st. Two lanes moved, everything else held. Portal link
+below; let me know if you want a walk-through before you load it.</p>
+
+<p>Owen Brantley<br>
+Calloway Freight Lines</p>
+</body></html>
