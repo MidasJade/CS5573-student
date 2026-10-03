@@ -378,9 +378,18 @@ question from last week: *who decided to expose this, and does anyone know it's 
 
 You've now got everything you need. One of your three hosts told both of your tools what
 software it runs, both tools believed it, and **the evidence from the host itself says
-otherwise** — the response shape and the error page both point somewhere else entirely.
-So every conclusion either tool drew about that software is wrong about that host. Not
-"low severity," not "probably fine": specific, detailed, confident, and wrong.
+otherwise.**
+
+Be clear about what the wrong finding actually *is*, because it's worth naming
+precisely. It isn't a vulnerability — neither tool claimed one. It's the **service
+identification**: `Apache[2.2.14]` from whatweb, `Apache httpd 2.2.14 ((Unix))` from
+nmap. That single statement is wrong, and it is also the most load-bearing line either
+tool produced — it's what goes into your asset inventory, what patch management acts on,
+and what you'd type into a vulnerability database. Everything built on it inherits the
+error, which is why whatweb cheerfully offers you Google dorks for finding more hosts
+"like" this one.
+
+Not "low severity." Not "probably fine." Specific, detailed, confident, and wrong.
 
 **Finding F4: which host is it?** (Its IP, or its name.)
 
