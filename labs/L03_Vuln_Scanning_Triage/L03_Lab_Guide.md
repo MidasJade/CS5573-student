@@ -205,16 +205,24 @@ A database backup. A file upload. Cisco. Moodle. **None of those exist.** That h
 serves a handful of static HTML files — there is no PHP on it, no ASP, no JSP, no
 ColdFusion, no CMS, no `backup.sql`.
 
-**So why did the scanner report them?** Two commands will show you. Ask for a page under
+**So why did the scanner report them?** Two commands will show you. Ask for a file under
 `/admin/` that does exist, then ask for one that obviously doesn't:
 
 ```bash
-curl -sI http://172.29.0.10/admin/
+curl -sI http://172.29.0.10/admin/index.html
 curl -sI http://172.29.0.10/admin/there-is-no-such-file.php
 ```
 
-Both come back **`401 Unauthorized`**. The same response for a page that is there and a
-page that never was.
+Both come back **`401 Unauthorized`**, with an identical
+`WWW-Authenticate: Basic realm="Restricted"` header. The same response for a file that
+is there and a file that never was.
+
+> **Mind the trailing slash.** If you ask for `http://172.29.0.10/admin` — no slash —
+> you get a **`301 Moved Permanently`** instead, pointing you at `/admin/`. That isn't
+> the access control; it's the web server noticing you asked for a directory by the
+> wrong name and redirecting you to the right one, which happens *before* the password
+> rule applies. Request the two files above, not the directory, and the comparison is
+> exact.
 
 That's the whole explanation. `/admin/` is password-protected, and the server asks for
 credentials **before** it looks to see whether the file exists — so it never gets as far
@@ -460,6 +468,9 @@ check, then `cd` there.
 - **A scanning tool is missing or errors:** use
 `nmap -sV --script http-enum,http-headers <target>` instead, and tell your instructor.
 **None of the five findings change** — they come from the targets, not the scanner.
+- **A `curl` returned `301 Moved Permanently` instead of what the guide said:** you
+probably dropped a trailing slash on a directory. `/admin` redirects to `/admin/`;
+`/backup` redirects to `/backup/`. Add the slash, or request a file inside it.
 - **`curl` returns nothing at all for a host:** check you used the right port. 80 for
 `.10`, 8080 for `.20`, 9090 for `.30` — a `curl` to the wrong port on a live host
 hangs or returns empty rather than saying "wrong port."
