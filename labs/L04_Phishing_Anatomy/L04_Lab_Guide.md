@@ -79,8 +79,7 @@ root@analyst:/workbench#
 ```
 
 **If your prompt does not say `analyst`, you are still on your own machine**, and
-everything below will look empty. This is the single most common way to lose five
-minutes in this lab. Run the `exec` line again.
+everything below will look empty. Run the `exec` line again.
 
 Confirm the messages are there:
 
@@ -135,7 +134,7 @@ SUMMARY  /cases/case01.eml
 ```
 
 Four different address fields, and **they are four different things.** This is the first
-thing to internalise, because mail clients show you only the first one:
+thing to internalize, because mail clients show you only the first one:
 
 | Field | What it is | Who controls it |
 |---|---|---|

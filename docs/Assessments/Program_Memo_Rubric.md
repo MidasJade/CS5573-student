@@ -273,6 +273,10 @@ plus Card 7's (*does this row force a decision — owner, treatment, date?*).
 > **Thirty rows of real, owned, decided risk is an excellent D2. Thirty rows of
 > boilerplate is a worse D2 than six honest ones.** Grade the rows, never the count.
 
+> **Handouts:** `D2_D3_Register_Template.md` (fields, both layouts, anti-patterns) and
+> `D2_Sample_Risk_Register.md` (a full worked D2 at a different company — the same firm
+> as the D1 sample, two weeks on, with a breakdown of why it scores where it does).
+
 **Where the risks come from.** Students ask this first, so it is stated here as well as
 in the lecture:
 
@@ -292,15 +296,29 @@ you are struggling to find six risks, reread his answers — not a web search.
 ❌ **A lab host on the register** — `172.29.0.20`, `staff-directory.csv` — is a category
 error: that's a training range, not the company. Score item 4 down and say why.
 
-Every register row carries:
+Every register row carries **seven** fields. Layout is the student's choice (a wide
+table or stacked blocks — `D2_D3_Register_Template.md` gives both); the fields are not.
 
-1. **Risk statement** — an arguable sentence with SP 800-30's five parts (threat source ·
+1. **ID** — `R1`, `R2`, … **Permanent. Never renumbered, never reused.** A retired risk
+   keeps its ID and gets a *Retired* status.
+2. **Risk statement** — an arguable sentence with SP 800-30's five parts (threat source ·
    threat event · vulnerability · impact · likelihood), not a topic word like "Phishing."
-2. **Likelihood + impact**, each with **the reason that anchors it** — words, not a
+3. **Likelihood + impact**, each with **the reason that anchors it** — words, not a
    multiplied score.
-3. **Owner** — a person, by name. Not "IT."
-4. **Treatment decision** — one of **mitigate / transfer / avoid / accept**.
-5. **Review date.**
+4. **Owner** — a person, by name. Not "IT."
+5. **Treatment decision** — one of **mitigate / transfer / avoid / accept**.
+6. **Status + next review date.**
+7. **Source** — the questionnaire item ID, packet section, their own L02 asset register,
+   or the base-rate citation.
+
+> **Why ID and Source are fields and not nice-to-haves.** §4 is revised six times
+> between February and finals week, and the report rubric requires it to carry *"a change
+> log: risks added, re-scored, or retired during the year, and why."* That is impossible
+> without stable row names — D3's element 4 literally says *"name at least two D2 rows,"*
+> and a row with no name cannot be named. **Source** makes a 2–3 minute grade possible and
+> is the first thing to look at under item 4.
+>
+> **These columns exist so §4 assembles by concatenation rather than by rewriting.**
 
 The memo around the table answers the question the table can't: **what are your top
 three, and why those three?**
@@ -350,13 +368,20 @@ Five elements:
      their own L02 asset register.
    - **"Would we know?"** — the detection column. New in D3.
 4. **What this changes in the register** — at least **two** D2 rows re-scored, re-ranked,
-   or added, each with why the profile changed their mind. **A row moved *down* is as
+   re-treated, added or retired, **as a change log table** (ID · change · from → to · why),
+   each with why the profile changed their mind. **This table is what §4's required change
+   log inherits**, so it is worth insisting on the format. **A row moved *down* is as
    good an answer as one moved up** — better, usually, because it is harder to write and
    it proves they re-read their own work rather than appending to it.
 5. **One honest limitation** — what the profile cannot tell them. Strongest answers:
    ATT&CK records what has been *observed and reported*, so absence from it is not
    evidence of absence; or, the "would we know" column assesses a system nobody has
    instrumented, so every cell in it is an inference.
+
+> **Handouts:** `D2_D3_Register_Template.md` (the actor, chain and **change-log** tables)
+> and `D3_Sample_Threat_Profile.md` (the same firm as D1/D2, a week later — including the
+> change log moving four of its nine register rows). Point students at that change log
+> specifically; it is the element they skip.
 
 **Where the content comes from.** Same discipline as D2, with one addition — the second
 column has a different and much thinner source than the first:
@@ -403,5 +428,6 @@ column has a different and much thinner source than the first:
 
 ---
 
-*(Instructor: `D1_Sample_Charter_Memo_AnswerKey.md` holds the in-scenario 10/10
-exemplar and the band-below calibration notes. Not for release.)*
+*(Instructor: `D1_Sample_Charter_Memo_AnswerKey.md` and `D2_D3_Exemplar_AnswerKey.md`
+hold the in-scenario 10/10 exemplars and the band-below calibration notes. Not for
+release.)*
