@@ -95,7 +95,7 @@ Answer at least **two**:
 
 What transfers from tonight to your **D2 risk register** is the **method**, not
 these findings. This environment is a training range — it isn't your company,
-and its hosts don't belong on your register. Practise the form here, on what you
+and its hosts don't belong on your register. Practice the form here, on what you
 actually found tonight; then apply the same form to your company's own
 documented exposures when you write D2.
 

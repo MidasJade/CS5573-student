@@ -3,7 +3,7 @@
 **Name:** ________________________  **Date:** ______________
 
 Fill this in **as you go** — several questions ask for the exact header line you based a
-verdict on, which is much harder to reconstruct afterwards.
+verdict on, which is much harder to reconstruct afterward.
 
 **Submit:** this worksheet exported to **PDF**, *and* the five findings in the Canvas
 quiz. Both due **Sunday 11:59 PM**.
@@ -62,7 +62,7 @@ one **legitimate** reason a real business message might do that.
 ```
 
 **B.4** In the `Received:` chain, which line was written by a server **your own
-organisation controls** — the top one or the bottom one? Why does that make it harder to
+organization controls** — the top one or the bottom one? Why does that make it harder to
 forge than the `From:` header?
 
 ```

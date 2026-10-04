@@ -206,7 +206,7 @@ The memo is a **draft of a report section**, not a homework artifact.
   from the middle, and one near the bottom. You are judging whether the rows are
   specific and decided, which three samples answer as well as thirty. Only read further
   if the samples disagree with each other.
-- **Never reward or penalise row count.** A student who submits twenty good rows and one
+- **Never reward or penalize row count.** A student who submits twenty good rows and one
   who submits eight good rows can both score 10/10.
 - **One comment, on the lowest-scoring item.** Ten memos of one useful comment beats two
   memos of five. Feedback here compounds — it's the same five items every week, so a

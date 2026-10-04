@@ -15,7 +15,7 @@ DKIM-Signature: v=1; a=rsa-sha256; d=swiftmail-free.example; s=sm1;
 	b=Kx3nQpVz8LtYmBcR1oWsEaD7fGhJ9iU4ZvNlXqCbPyToMrSwA2eGdHuI5jFyKnQdRb
 From: "Priya Lindqvist (Arbor Ridge HR)" <priya.lindqvist.hr@swiftmail-free.example>
 To: <t.okonkwo@arborridge.example>
-Subject: Quick favour before the end of the day
+Subject: Quick favor before the end of the day
 Date: Fri, 21 Aug 2026 15:58:28 -0500
 Message-ID: <CAF8h2Qm9kLpR4vNwZdX7sT1gEoJ@swiftmail-free.example>
 MIME-Version: 1.0

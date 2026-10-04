@@ -7,7 +7,7 @@
 
 **Open the worksheet now** — `L04_Worksheet.docx`, from Canvas — and fill it in *as you
 go*. It asks for the exact header lines you based each verdict on, so writing it
-afterwards from memory is harder and worse.
+afterward from memory is harder and worse.
 
 > **Which terminal do I use?**
 > **Windows:** **PowerShell** (Start → "PowerShell"). If you already have WSL set up,
@@ -149,7 +149,7 @@ envelope. Nothing in the email format prevents it.
 
 Now look at what those four fields say *here*. The company in this exercise is **Arbor
 Ridge Supply Co.** — you can read its real domain straight off the `To:` line, which was
-written by the receiving organisation's own systems and is the one field in this message
+written by the receiving organization's own systems and is the one field in this message
 nobody outside the company got to choose.
 
 Compare it, character by character, to the domain in `From:`.
@@ -345,7 +345,7 @@ ATTACHMENTS
   filename       : Delivery_Notice_7730184412.htm
   declared type  : text/html
   decoded size   : 1344 bytes
-  sha256         : 8bf7f01d……………………………………………………………4b4bd6c
+  sha256         : e095dd8c……………………………………………………………fdc7b16
 ```
 
 *(The digest is abbreviated here on purpose — the full 64 characters are on your
@@ -563,7 +563,7 @@ Expect it to remove one container and the lab's default network.
 
 **What survives:** the image it pulled and built, and the five message files — those
 live in this folder on your own disk, not in the container, so they are still here
-afterwards. Coming back is just `docker compose up -d --build`, and it'll be much faster
+afterward. Coming back is just `docker compose up -d --build`, and it'll be much faster
 the second time.
 
 **Why bother?** The service here is set to restart itself whenever Docker Desktop

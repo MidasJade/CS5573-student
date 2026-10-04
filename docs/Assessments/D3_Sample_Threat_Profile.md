@@ -59,7 +59,7 @@ instrumented, so every cell in it is an inference, not an observation.
 | **Financially motivated criminal crew** | Low and cheap — a lure and a password. Assumed, not evidenced. | **Established at industry scale.** Insurer renewal questionnaire Q9/Q14 names credential theft and ransomware as the most frequent and most costly losses in our professional class. | **Documented in our own inventory.** No second factor on email (§4); servers reachable from every workstation (§2); no retained logs (§6). | **Yes — primary.** All three present, and two of the three are evidenced from our own documents rather than assumed. |
 | **Careless insider** (not malicious) | By definition present — it is our own staff. | Not applicable; there is no intent. The mechanism is convenience. | Four unmanaged branch drives (§3); nine unassessed collaboration services (vendor inventory); no offboarding checklist (§5). | **Yes — secondary.** The volume case. Someone emailing a drawing set to a personal account to work on it Sunday does more damage per year than a saboteur would. |
 | **A competitor seeking proprietary detailing work** | Moderate, if they wanted to. | **No evidence toward this firm.** And much of the work product becomes visible in permitted public filings regardless, which undercuts the premise. | Would exist — see the careless-insider row; the same gaps serve both. | **No.** Declined. The exposure is real, the adversary is not evidenced, and the treatments are already funded under R4 and R5 for reasons I can defend. |
-| **Activists opposed to the transit alignment** | Low against systems; their demonstrated methods are public and physical. | **No demonstrated intent toward us**, and no monetisation path. We are a subcontractor, not the project sponsor. | Limited. Public-facing exposure is a website Facilities does not even own. | **No.** Declined, and I want the reason recorded: this gets raised in this office because it is easy to picture, which is not evidence. |
+| **Activists opposed to the transit alignment** | Low against systems; their demonstrated methods are public and physical. | **No demonstrated intent toward us**, and no monetization path. We are a subcontractor, not the project sponsor. | Limited. Public-facing exposure is a website Facilities does not even own. | **No.** Declined, and I want the reason recorded: this gets raised in this office because it is easy to picture, which is not evidence. |
 
 ---
 
@@ -92,7 +92,7 @@ Four rows move. The updated register is attached with these changes applied.
 | **R2** | Re-ranked | **#2 → #1** | The chain shows R2 is *how R1 arrives*. Funding ransomware mitigation while email has no second factor is buying a better lock for a door somebody is opening with a key. R2 is also the cheaper of the two. R1 stays funded; it moves to second. |
 | **R7** | **Re-scored and re-treated** | Moderate / **Accept** → Serious / **Mitigate** | I recommended accepting this two weeks ago and I was wrong. Read down the right-hand column of the chain: we would not detect steps 1 through 4. R7 is not a standalone investigative risk — it is **the reason every other row's duration is unbounded.** Withdrawing my own acceptance, with Ellis's agreement, and asking for basic authentication and file-access logging before the renewal. |
 | **R4** | Re-ranked | **#4 → #7** | I ranked the departing engineer who deliberately takes files on how vividly I could picture it. The evidence says the *careless* insider dominates by volume and the deliberate one is rare. The row stays — it is still real — but lower, and the treatment now addresses accidental egress first, which is the same fix and covers both. **This is a row I moved down, and it was the hardest one to write.** |
-| **R10** | **Added** | — → added | The actor analysis asked a question the register never had: what does the crew *do* with mailbox access? For a firm that sends invoices, change orders and seal authorisations by email, the answer is fraud conducted in our name against our own clients — a contractual and reputational loss distinct from anything R2 described. That consequence had no row. It does now, owned by me, treatment Mitigate, sourced to client agreements TB-204/211/230. |
+| **R10** | **Added** | — → added | The actor analysis asked a question the register never had: what does the crew *do* with mailbox access? For a firm that sends invoices, change orders and seal authorizations by email, the answer is fraud conducted in our name against our own clients — a contractual and reputational loss distinct from anything R2 described. That consequence had no row. It does now, owned by me, treatment Mitigate, sourced to client agreements TB-204/211/230. |
 
 ---
 
@@ -113,13 +113,13 @@ the better answer. Nothing defines what a threat actor is.
 **3. Calibrated.** Three places to look. The limitation paragraph is one sentence and it
 is a real limitation, not a disclaimer: *"every cell in it is an inference, not an
 observation."* The capability column for the primary actor says **"assumed, not
-evidenced"** — labelling the weakest of the three legs instead of dressing it up. And
+evidenced"** — labeling the weakest of the three legs instead of dressing it up. And
 step 5's detection cell refuses the easy claim: we *would* know, and that is stated as
 bad news rather than reassurance.
 
 **4. Specific to that firm.** Permitted public filings undercutting the competitor
 premise. A transit alignment. A website Facilities doesn't own. Invoices and seal
-authorisations sent by email. Three client agreements by number. **The declined actors
+authorizations sent by email. Three client agreements by number. **The declined actors
 are the ones people in that office actually raise** — which is the test of whether the
 declining was real work or a formality.
 

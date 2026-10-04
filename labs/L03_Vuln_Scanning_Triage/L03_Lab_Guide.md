@@ -6,7 +6,7 @@
 **Submit:** the Canvas quiz (five findings) **and** the worksheet, exported to PDF.
 
 **Open the worksheet now** — `L03_Worksheet.docx`, from Canvas — and fill it in *as you
-go*. It asks for the exact commands you ran, so writing it afterwards from memory is
+go*. It asks for the exact commands you ran, so writing it afterward from memory is
 harder and worse.
 
 > **Which terminal do I use?**
@@ -108,7 +108,7 @@ not your employer's, not a website you're curious about, not the other lab's seg
 
 This is not a formality. Running a vulnerability scanner against a host you don't have
 written permission to test is, depending on where you are, a contract violation, a
-firing offence, or a crime. The scanner does not know or care whose machine it is
+firing offense, or a crime. The scanner does not know or care whose machine it is
 pointed at. **You are the control.**
 
 In real engagements this boundary is written down before anyone touches a keyboard —
@@ -344,7 +344,7 @@ Four things to compare, and none of them require knowing a product:
 
 Fill that in from your own output. **One of those three columns is a copy of another
 one.** Software leaves fingerprints in details nobody thinks to fake — which protocol
-version it speaks, how it capitalises a header name, which optional headers it bothers
+version it speaks, how it capitalizes a header name, which optional headers it bothers
 to send. A banner is one string, easily changed. These are structural, and whoever set
 that banner never touched them.
 
